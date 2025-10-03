@@ -14,7 +14,10 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-productSchema.plugin(AutoIncrement,{inc_field:"Id"});
+productSchema.plugin(AutoIncrement, {
+  inc_field: "Id",
+  id: "product_id_counter", // <- unique ID
+});
 
 const Product = mongoose.model("Product", productSchema);
 
