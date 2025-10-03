@@ -15,18 +15,36 @@ const getProducts = async (req, res) => {
 // @route POST /api/products
 const addProduct = async (req, res) => {
   try {
-    const { title, category, price, description, imageUrl } = req.body;
+    const {
+      name,
+      category,
+      scent,
+      price,
+      description,
+      image,
+      ingredients,
+      rating,
+      reviews,
+      inStock,
+      isNew
+    } = req.body;
 
-    if (!title || !price) {
-      return res.status(400).json({ error: "Title and price are required" });
+    if (!name || !price || !image) {
+      return res.status(400).json({ error: "Name, price, and image are required" });
     }
 
     const product = new Product({
-      title,
+      name,
       category,
+      scent,
       price,
       description,
-      imageUrl
+      image,
+      ingredients,
+      rating,
+      reviews,
+      inStock,
+      isNew
     });
 
     await product.save();
