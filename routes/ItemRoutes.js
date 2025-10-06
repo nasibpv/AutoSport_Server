@@ -67,6 +67,6 @@ router.get("/", getItems);
  *         description: Item created successfully
  */
 router.post("/", addItem);
-router.put("/", updateItem);
+router.put("/:id", updateItem);
 
 module.exports = router;
