@@ -20,7 +20,8 @@ const itemSchema = new mongoose.Schema(
 );
 itemSchema.plugin(AutoIncrement, {
   inc_field: "Id",
-  id: "item_id_counter", // <- unique ID
+  id: "item_id_counter",
+  start_seq: 1,
 });
 
 const Item = mongoose.model("Item", itemSchema);

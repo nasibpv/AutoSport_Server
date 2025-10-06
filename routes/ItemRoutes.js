@@ -1,5 +1,5 @@
 const express = require("express");
-const { getItems, addItem } = require("../controllers/itemController");
+const { getItems, addItem,updateItem } = require("../controllers/itemController");
 
 const router = express.Router();
 
@@ -67,5 +67,6 @@ router.get("/", getItems);
  *         description: Item created successfully
  */
 router.post("/", addItem);
+router.put("/", updateItem);
 
 module.exports = router;
