@@ -76,7 +76,6 @@ const updateItem = async (req, res) => {
   }
 };
 
-const Item = require("../models/itemModel");
 
 const deleteItem = async (req, res) => {
   const { id } = req.params;
