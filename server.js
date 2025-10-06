@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 app.use("/api/products",productReoutes);
 
-app.use("/api/items", itemRoutes); 
+app.use("/api/items", itemRoutes); // ← REGISTER ITEM ROUTES
 
 app.get("/", (req, res) => {
   res.send("Backend is running...");

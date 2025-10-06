@@ -68,6 +68,26 @@ router.get("/", getItems);
  */
 router.post("/", addItem);
 router.put("/:id", updateItem);
+
+/**
+ * @swagger
+ * /api/items/{id}:
+ *   delete:
+ *     summary: Delete an item by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the item to delete
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Item deleted successfully
+ *       404:
+ *         description: Item not found
+ */
+
 router.delete("/:id", deleteItem);
 
 module.exports = router;
