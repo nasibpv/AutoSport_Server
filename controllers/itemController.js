@@ -75,4 +75,23 @@ const updateItem = async (req, res) => {
     res.status(500).json({ error: "Failed to update item" });
   }
 };
-module.exports = { getItems, addItem,updateItem };
+
+const Item = require("../models/itemModel");
+
+const deleteItem = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deleted = await Item.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
+    res.status(200).json({ message: "Item deleted successfully" });
+  } catch (err) {
+    console.error("Error deleting item:", err);
+    res.status(500).json({ message: "Failed to delete item", error: err.message });
+  }
+};
+
+module.exports = { getItems, addItem,updateItem ,deleteItem};
